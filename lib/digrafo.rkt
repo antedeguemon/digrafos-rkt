@@ -73,7 +73,7 @@
     ; em d.
     ;
     ; Saída: lista de arestas
-    (define/public (get-arestas)
+    (define/private (get-arestas)
       (digrafo-lista-arestas d))
 
     ; Retorna a estrutura nodo associada ao alias definido,
