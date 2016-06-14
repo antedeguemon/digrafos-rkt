@@ -11,8 +11,33 @@ nodo do digrafo com relação a um nodo origem, sendo necessariamente
 todos os pesos das arestas com peso positivo ou zero.
 * [Kosaraju](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm): algoritmo de Kosaraju, para identificação de componentes fortemente conexos em um digrafo. 
 Utilizamos a implementação descrita por Sedgewick no livro [Algorithms](https://books.google.fi/books?id=idUdqdDXqnAC&hl=pt-BR).
+* [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm): algoritmo de Bellman-Ford, para cálculo da distância de cada nodo do digrafo com relação a um outro nodo, denominado origem, podendo ter arestas com pesos negativos. ** Algoritmo implementado, mas não utilizado.**
 
 Esses algoritmos requerem funções extras de manipulação e extração de outras informações necessárias.
+
+### Programa Exemplo
+O arquivo main.rkt é um programa para testar a biblioteca digrafos-rkt. Ele lê um arquivo no formato:
+```
+número de nodos
+número de arestas
+nodo_a nodo_b peso
+nodo_b nodo_c peso
+```
+Por exemplo, o seguinte arquivo:
+```
+2
+2
+0 1 0.5
+1 0 1
+```
+Produziria as seguintes operações na classe de digrafos:
+```
+(add-nodo 0)
+(add-nodo 1)
+(add-aresta 0 1 0.5)
+(add-aresta 1 0 1)
+```
+Após produzir o dígrafo, o programa aplica as operações de cálculo de distâncias para um nodo perguntado e cálculo do número de arestas, nodos e componetnes fortemente conexos.
 
 #### Funções
 A descrição e modo de uso de cada função está presente em suas declarações no arquivo digrafos.rkt. Abaixo, há uma lista com todas as funções da classe:
