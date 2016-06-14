@@ -26,7 +26,7 @@
 (provide digrafo%)
 
 ; Guarda um digrafo e seus componentes, sendo este definido por:
-; G(V, E), sendo V os vértices (nodos).
+; G(V, E), sendo V os vértices (nodos) e E as arestas.
 ; A estrutura digrafo é definida por:
 ; lista-nodos:   lista de estruturas do tipo nodo
 ; lista-arestas: lista de estruturas do tipo aresta
