@@ -17,7 +17,7 @@
 ;
 ; Autor:  Vicente Merlo (vammerlo@inf.ufrgs.br)
 ;         Bruno Bastiani (bmbastiani@inf.ufrgs.br)
-; Data: 02/06/2016
+; Data:   02/06/2016
 ;
 ; Observações:
 ; - Nesta documentação, vértices são chamados de nodos.
@@ -264,20 +264,6 @@
        (lambda (n)
          (if (eq? (car n) alias) (cdr n) #f)) dist)))
     
-    ; Retorna o menor nodo de uma lista de distâncias
-    ;
-    ; Parâmetros:
-    ; dist:     lista de distâncias
-    ; min-nodo: menor nodo relativo, usado para recursão
-    ;
-    ; Saída: par (alias, distância) da lista-de-distâncias dada
-    (define/public (dist-min dist [min-nodo (cons -1 99)])
-      (cond [(empty? dist) min-nodo]
-            [else (dist-min
-                   (rest dist)
-                   (if (< (cdr (first dist)) (cdr min-nodo)) (first dist) min-nodo)
-            ) ]))
-
     ; Retorna o menor nodo de uma lista de alises de nodos associada a uma
     ; lista-de-distâncias.
     ;
