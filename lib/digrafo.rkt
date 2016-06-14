@@ -15,7 +15,8 @@
 ; - Kosaraju: algoritmo de Kosaraju, para identificação de componentes
 ; fortemente conexos em um digrafo.
 ;
-; Autor: Vicente Merlo (vammerlo@inf.ufrgs.br)
+; Autor:  Vicente Merlo (vammerlo@inf.ufrgs.br)
+;         Bruno Bastiani (bmbastiani@inf.ufrgs.br)
 ; Data: 02/06/2016
 ;
 ; Observações:
