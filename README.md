@@ -13,7 +13,7 @@ todos os pesos das arestas com peso positivo ou zero.
 Utilizamos a implementação descrita por Sedgewick no livro [Algorithms](https://books.google.fi/books?id=idUdqdDXqnAC&hl=pt-BR).
 * [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm): algoritmo de Bellman-Ford, para cálculo da distância de cada nodo do digrafo com relação a um outro nodo, denominado origem, podendo ter arestas com pesos negativos. ** Algoritmo implementado, mas não utilizado.**
 
-Esses algoritmos requerem funções extras de manipulação e extração de outras informações necessárias.
+Esses algoritmos requerem funções extras de manipulação e extração de outras informações necessárias, que também são oferecidas pela classe. 
 
 ### Programa Exemplo
 O arquivo main.rkt é um programa para testar a biblioteca digrafos-rkt. Ele lê um arquivo no formato:
