@@ -43,7 +43,12 @@
 (display "\nNodos: ")
 (display (send digr n-nodos))
 (display "\nComponentes fortemente conexos: ")
-(display (send digr kosaraju))
+(display (length (send digr kosaraju)))
+(display "\n")
+
+(for-each
+ (lambda (n) (and (display n) (display "\n")))
+ (send digr kosaraju))
 
 ; Cálculo de distâncias
 (display "\n\n[TABELA DE DISTANCIAS]")
