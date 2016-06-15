@@ -221,20 +221,42 @@
     ; Não possui parâmetros de entrada pois atua diretamente no digrafo sendo
     ; manipulado pela classe.
     ;
-    ; Saída: inteiro que é a quantidade de SCC
-    (define/public (kosaraju)
+    ; Saída: lista de componentes parcialmente conexos, com aliases de nodos
+    (define/public (kosaraju-b)
       (let ([mar empty]
-            [co 0])
+            [co 0]
+            [componentes empty])
         (for-each
          (lambda (nodo)
            (if (false? (member nodo mar))
                (and
                 (dfs nodo
                      #:comeco (lambda (n) (set! mar (append (list n) mar))) #:rev #f)
-                (set! co (+ co 1)))
+                (set! co (+ co 1))
+                (set! componentes (append componentes (list mar))))
                #f))
          (rpos))
-        co))
+        componentes))
+
+    ; Filtro para verificar as conexões entre nodos dos componentes parciais
+    ;
+    ; Parâmetros:
+    ; parcial:     lista com componentes parciais (nodos não necessariamente fortemente conexos)
+    ; usadas:      lista com nodos já conexos
+    ; componentes: lista de componentes que tiveram sua conexão verificada,
+    ;              com nodos apenas parcialmente conexos removidos.
+    ;
+    ; Saída:       lista com alises de nodos
+   (define (kosaraju-c parcial usadas componentes)
+     (cond [(empty? parcial) componentes]
+        [else (let ([visitamos (filter-map (lambda (n) (if (false? (member n usadas)) n #f)) (first parcial) )])                
+                 (kosaraju-c (rest parcial) (append usadas visitamos) (append (list visitamos) componentes)))]))
+
+    ; Função holder para o algoritmo de Kosaraju
+    ; 
+    ; Saída: lista de componentes fortemente conexos, sendo que cada lista possui aliases de nodos
+    (define/public (kosaraju)
+      (kosaraju-c (kosaraju-b) empty empty))
 
     ; Algoritmo de Bellman para encontrar caminho mínimo com pesos inteiros.
     ; NÃO UTILIZADO!
