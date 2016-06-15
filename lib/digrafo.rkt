@@ -66,12 +66,16 @@
     ; Retorna uma lista com todos os nodos do digrafo que está armazenado
     ; em d.
     ;
+    ; Exemplo: (get-nodos)
+    ;
     ; Saída: lista de nodos
     (define/private (get-nodos)
       (digrafo-lista-nodos d))
 
     ; Retorna uma lista com todas as arestas do digrafo que está armazenado
     ; em d.
+    ;
+    ; Exemplo: (get-arestas)
     ;
     ; Saída: lista de arestas
     (define/private (get-arestas)
@@ -80,6 +84,10 @@
     ; Retorna a estrutura nodo associada ao alias definido,
     ; que se encontra dentro do digrafo. Caso não existe,
     ; retorna #f.
+    ;
+    ; Exemplo: (get-nodo 0)
+    ;
+    ; Saída: estrutura nodo ou falso
     (define/public (get-nodo alias)
       (get-nodo-internal alias (get-nodos)))
 
@@ -92,6 +100,9 @@
 
     ; Adiciona um nodo a lista de nodos do digrafo d.
     ;
+    ; Exemplo: (add-nodo 0)
+    ;          Adiciona ao digrafo um nodo com alias 0.
+    ;
     ; Saída: void
     (define/public (add-nodo alias)     
       (set-digrafo-lista-nodos! d (append (list (make-nodo alias)) (get-nodos))))
@@ -103,6 +114,9 @@
     ; alias-a: alias de um nodo origem
     ; alias-b: alias de um nodo ao qual a aresta incidirá
     ; peso:    número representando o peso da aresta
+    ;
+    ; Exemplo: (add-aresta 0 1 5)
+    ;          Cria uma aresta entre o nodo a e o nodo b com peso 5.
     ;
     ; Saída: void
     (define/public (add-aresta alias-a alias-b peso)
@@ -117,12 +131,16 @@
     ; Retorna o número de nodos do digrafo.
     ; É obtido através da função get-nodos.
     ;
+    ; Exemplo: (n-nodos) 
+    ;
     ; Saída: número
     (define/public (n-nodos)
       (length (get-nodos)))
     
     ; Retorna o número de arestas do digrafo
     ; É obtido através da função get-arestas.
+    ;
+    ; Exemplo: (n-arestas)
     ;
     ; Saída: número
     (define/public (n-arestas)
@@ -134,6 +152,9 @@
     ; Parâmetros:
     ; alias: alias identificador do nodo
     ; rev:   booleano que define se deverá retornar arestas inc ou adj
+    ;
+    ; Exemplo: (adj 0)
+    ;          Retorna uma lista com nodos adjancetes ao nodo 0.
     ;
     ; Saída: lista de aliases
     (define/public (adj alias [rev #f])
@@ -156,6 +177,9 @@
     ; comeco:    função para callback no começo
     ; meio:      função para callback no meio
     ; fim:       função para callback no fim
+    ;
+    ; Exemplo: (dfs 0)
+    ;          Executará o dfs no nodo com alias 0. Não chamará funções de callback.
     ;
     ; Saída:     void
     (define/public (dfs nodo
@@ -213,6 +237,7 @@
         co))
 
     ; Algoritmo de Bellman para encontrar caminho mínimo com pesos inteiros.
+    ; NÃO UTILIZADO!
     ;
     ; Parâmetros:
     ; origem: alias de um nodo
