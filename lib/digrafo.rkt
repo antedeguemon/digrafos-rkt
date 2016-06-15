@@ -250,7 +250,7 @@
    (define (kosaraju-c parcial usadas componentes)
      (cond [(empty? parcial) componentes]
         [else (let ([visitamos (filter-map (lambda (n) (if (false? (member n usadas)) n #f)) (first parcial) )])                
-                 (kosaraju-c (rest parcial) (append usadas visitamos) (append (list visitamos) componentes)))]))
+                 (kosaraju-c (rest parcial) (append usadas visitamos) (append (list (remove-duplicates visitamos)) componentes)))]))
 
     ; Função holder para o algoritmo de Kosaraju
     ; 
