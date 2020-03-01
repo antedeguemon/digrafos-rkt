@@ -1,4 +1,12 @@
-### digrafos-rkt
+# Important note
+I wrote this code five years ago while I learning functional programming. It has lots of mutability and is poorly written.
+
+**THIS IS NOT A GOOD EXAMPLE OF RACKET CODE.**
+
+For a cool Scheme and Racket reference, take a look at [SICP](https://web.mit.edu/alexmv/6.037/sicp.pdf).
+
+# digrafos-rkt
+
 Biblioteca em Racket para manipulação de grafos direcionais com pesos. 
 
 Apresentada na disciplina de Teoria dos Grafos (INF05512) do professor Rodrigo Machado na UFRGS.
